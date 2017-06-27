@@ -66,7 +66,7 @@ function mostrarValores(aqiParam, cityParam) {
     if (aqiVal >= 0 && aqiVal <= 50) {
         $("#aqi").css("background-color", "green");
     } else if (aqiVal > 50 && aqiVal <= 100) {
-        $("#aqi").css("background-color", "#fff200");
+        $("#aqi").css("background-color", "#cccc00");
     } else if (aqiVal > 100 && aqiVal <= 150) {
         $("#aqi").css("background-color", "orange");
     } else if (aqiVal > 150 && aqiVal <= 200) {
