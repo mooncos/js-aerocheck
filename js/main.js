@@ -1,5 +1,5 @@
 var url = "http://api.waqi.info/feed/geo::lat;:lng/?token=:token";
-var error = document.getElementById("error");
+var errorText = document.getElementById("error");
 var city = document.getElementById("loc");
 var aqi = document.getElementById("aqi");
 var welcome = document.getElementById("welcome");
@@ -7,9 +7,26 @@ var content = document.getElementById("main");
 
 function obtenerLocalizacion() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(procesarPosicion);
+        navigator.geolocation.getCurrentPosition(procesarPosicion, showError);
     } else {
-        error.innerHTML = "Geolocation is not supported by this browser.";
+        errorText.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            errorText.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            errorText.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            errorText.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            errorText.innerHTML = "An unknown error occurred."
+            break;
     }
 }
 
@@ -60,11 +77,9 @@ function mostrarValores(aqiParam, cityParam) {
 
 }
 
-function hacerGetHTTP(laURL)
-{
+function hacerGetHTTP(laURL) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", laURL, false );
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
-

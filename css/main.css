@@ -9,3 +9,15 @@
     border-radius: 10px;
     text-align: center;
 }
+
+#error {
+    color: red;
+}
+
+.welcome-title {
+    margin-bottom: 0px;
+}
+
+.logo {
+    font-weight: 600;
+}
