@@ -60,8 +60,21 @@ function ipLocalizacion() {
 
 function mostrarValores(aqiParam, cityParam) {
     aqiVal = aqiParam;
-    aqi.innerHTML = aqiVal;
     city.innerHTML = cityParam;
+
+    if (aqiVal >= 0 && aqiVal <= 50) {
+        $("#aqi").html(aqiVal + " · Good");
+    } else if (aqiVal > 50 && aqiVal <= 100) {
+        $("#aqi").html(aqiVal + " · Moderate");
+    } else if (aqiVal > 100 && aqiVal <= 150) {
+        $("#aqi").html(aqiVal + " · Harmful");
+    } else if (aqiVal > 150 && aqiVal <= 200) {
+        $("#aqi").html(aqiVal + " · Unhealthy");
+    } else if (aqiVal > 200 && aqiVal <= 300) {
+        $("#aqi").html(aqiVal + " · Very unhealthy");
+    } else if (aqiVal > 300) {
+        $("#aqi").html(aqiVal + " · Hazardous");
+    }
 
     if (aqiVal >= 0 && aqiVal <= 50) {
         $("#aqi").css("background-color", "green");
