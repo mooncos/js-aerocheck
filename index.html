@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AeroCheck</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="welcome" class=""><p>Please select one of the options: </p><button onclick="obtenerLocalizacion()">Fetch via Browser Location</button>
+    <button onclick="ipLocalizacion()">Fetch via IP</button></div>
+    
+    <div id="main" class="hidden-element">
+        <h1 class="header">AeroCheck</h1>
+        <h2 id="current-loc">City</h2>
+        <p id="current-aqi">00</p>
+        <p id="error" class=""></p>
+    </div>
+
+<script>
+var url = "http://api.waqi.info/feed/geo::lat;:lng/?token=:token";
+var error = document.getElementById("error");
+var city = document.getElementById("current-loc");
+var aqi = document.getElementById("current-aqi");
+var welcome = document.getElementById("welcome");
+var content = document.getElementById("main");
+
+function obtenerLocalizacion() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(procesarPosicion);
+    } else {
+        error.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function procesarPosicion(position) {
+
+    welcome.className = "hidden-element";
+    content.className = "";
+
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude; 
+    var url = "https://api.waqi.info/feed/geo:" + lat + ";" + long + "/?token=" + "4e74e4e29ca5b7b534c509c493f5cf41c938aafb";
+    var jsonRaw = hacerGetHTTP(url);
+    var jsonObjeto = JSON.parse(jsonRaw);
+
+    aqi.innerHTML = jsonObjeto.data.aqi;
+    city.innerHTML =jsonObjeto.data.city.name;
+    
+}
+
+function hacerGetHTTP(laURL)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", laURL, false );
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
+</script>
+</body>
+</html>
