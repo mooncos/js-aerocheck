@@ -1,27 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>AeroCheck</title>
-        <link rel="stylesheet" href="css/main.css">
-    </head>
-    <body>
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>AeroCheck</title>
+  <meta name="description" content="Instantly check your location's air quality.">
+  <meta name="author" content="margobra8">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="one-half column" style="margin-top: 25%">
         <div id="welcome" class="">
             <h1 class="welcome-title">Welcome to <span class="logo">AeroCheck</span>, a super quick air pollution index fetcher </h1>
-            <p>Please select one of the options: </p><button onclick="obtenerLocalizacion()">Fetch via Browser Location</button>
+            <p>Please select one of the options: </p>
+            <button onclick="obtenerLocalizacion()">Fetch via Browser Location</button>
             <button onclick="ipLocalizacion()">Fetch via IP</button>
         </div>
-        
         <div id="main" class="hidden-element">
             <h1 class="header">AeroCheck</h1>
-            <h2 id="current-loc">City</h2>
-            <p id="current-aqi">00</p>
+            <h2 id="loc">City</h2>
+            <p id="aqi">00</p>
             <p id="error" class=""></p>
         </div>
+      </div>
+    </div>
+  </div>
 
+<!-- Scripts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
 
-        <script src="js/main.js"></script>
-    </body>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
 </html>

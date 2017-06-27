@@ -1,7 +1,7 @@
 var url = "http://api.waqi.info/feed/geo::lat;:lng/?token=:token";
 var error = document.getElementById("error");
-var city = document.getElementById("current-loc");
-var aqi = document.getElementById("current-aqi");
+var city = document.getElementById("loc");
+var aqi = document.getElementById("aqi");
 var welcome = document.getElementById("welcome");
 var content = document.getElementById("main");
 
@@ -24,9 +24,7 @@ function procesarPosicion(position) {
     var jsonRaw = hacerGetHTTP(url);
     var jsonObjeto = JSON.parse(jsonRaw);
 
-    aqi.innerHTML = jsonObjeto.data.aqi;
-    city.innerHTML =jsonObjeto.data.city.name;
-    
+    mostrarValores(jsonObjeto.data.aqi, jsonObjeto.data.city.name);
 }
 
 function ipLocalizacion() {
@@ -38,8 +36,28 @@ function ipLocalizacion() {
     var jsonRaw = hacerGetHTTP(url);
     var jsonObjeto = JSON.parse(jsonRaw);
 
-    aqi.innerHTML = jsonObjeto.data.aqi;
-    city.innerHTML =jsonObjeto.data.city.name;
+    mostrarValores(jsonObjeto.data.aqi, jsonObjeto.data.city.name);
+}
+
+function mostrarValores(aqiParam, cityParam) {
+    aqiVal = aqiParam;
+    aqi.innerHTML = aqiVal;
+    city.innerHTML = cityParam;
+    
+    if (aqiVal >= 0 && aqiVal <= 50) {
+        $("#aqi").css("background-color", "green");
+    } else if (aqiVal > 50 && aqiVal <= 100) {
+        $("#aqi").css("background-color", "#fff200");
+    } else if (aqiVal > 100 && aqiVal <= 150) {
+        $("#aqi").css("background-color", "orange");
+    } else if (aqiVal > 150 && aqiVal <= 200) {
+        $("#aqi").css("background-color", "red");
+    } else if (aqiVal > 200 && aqiVal <= 300) {
+        $("#aqi").css("background-color", "purlple");
+    } else if (aqiVal > 300) {
+        $("#aqi").css("background-color", "black");
+    }
+
 }
 
 function hacerGetHTTP(laURL)
@@ -49,3 +67,4 @@ function hacerGetHTTP(laURL)
     xmlHttp.send( null );
     return xmlHttp.responseText;
 }
+

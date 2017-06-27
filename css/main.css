@@ -1,3 +1,11 @@
 .hidden-element {
     display: none;
 }
+
+#aqi {
+    font-size: 3em;
+    color: white;
+    background-color: grey;
+    border-radius: 10px;
+    text-align: center;
+}
