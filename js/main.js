@@ -9,12 +9,14 @@ function obtenerLocalizacion() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(procesarPosicion, showError);
     } else {
+        errorText.className = "";
         errorText.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
 
 function showError(error) {
-    switch(error.code) {
+    errorText.className = "";
+    switch (error.code) {
         case error.PERMISSION_DENIED:
             errorText.innerHTML = "User denied the request for Geolocation."
             break;
@@ -36,7 +38,7 @@ function procesarPosicion(position) {
     content.className = "";
 
     var lat = position.coords.latitude;
-    var long = position.coords.longitude; 
+    var long = position.coords.longitude;
     var url = "https://api.waqi.info/feed/geo:" + lat + ";" + long + "/?token=" + "4e74e4e29ca5b7b534c509c493f5cf41c938aafb";
     var jsonRaw = hacerGetHTTP(url);
     var jsonObjeto = JSON.parse(jsonRaw);
@@ -60,7 +62,7 @@ function mostrarValores(aqiParam, cityParam) {
     aqiVal = aqiParam;
     aqi.innerHTML = aqiVal;
     city.innerHTML = cityParam;
-    
+
     if (aqiVal >= 0 && aqiVal <= 50) {
         $("#aqi").css("background-color", "green");
     } else if (aqiVal > 50 && aqiVal <= 100) {
@@ -79,7 +81,7 @@ function mostrarValores(aqiParam, cityParam) {
 
 function hacerGetHTTP(laURL) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", laURL, false );
-    xmlHttp.send( null );
+    xmlHttp.open("GET", laURL, false);
+    xmlHttp.send(null);
     return xmlHttp.responseText;
 }

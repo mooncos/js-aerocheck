@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>AeroCheck</title>
-  <meta name="description" content="Instantly check your location's air quality.">
+  <meta name="description" content="Instantly check your location's air quality">
   <meta name="author" content="margobra8">
 
   <!-- Mobile Specific Metas
@@ -15,7 +16,7 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,700i" rel="stylesheet" type="text/css">
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -28,6 +29,7 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
 
 </head>
+
 <body>
 
   <!-- Primary Page Layout
@@ -36,28 +38,30 @@
     <div class="row">
       <div class="one-half column" style="margin-top: 25%">
         <div id="welcome" class="">
-            <h1 class="welcome-title">Welcome to <span class="logo">AeroCheck</span></h1>
-            <h4>a <strong>super quick</strong> air pollution index fetcher</h3>
+          <h1 class="welcome-title">Welcome to <span class="logo">AeroCheck</span></h1>
+          <h3>Instantly check your location's <strong>air quality</strong></h3>
             <p>Please select one of the options: </p>
             <button onclick="obtenerLocalizacion()">Fetch via Browser Location</button>
-            <button onclick="ipLocalizacion()">Fetch via IP</button>
-            <p id="error" class=""></p>
+            <button onclick="ipLocalizacion()">Fetch via IP address</button>
+            <p id="error" class="hidden-element"></p>
         </div>
         <div id="main" class="hidden-element">
-            <h1 class="header logo">AeroCheck</h1>
-            <h2 id="loc">{{ location }}</h2>
-            <p id="aqi">{{ aqi.int }}</p>
+          <h1 class="header logo">AeroCheck</h1>
+          <h4>Nearest station:</h4>
+          <h2 id="loc">{{ location }}</h2>
+          <p id="aqi">{{ aqi.int }}</p>
         </div>
       </div>
     </div>
   </div>
 
-<!-- Scripts
+  <!-- Scripts
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="js/main.js"></script>
 
-<!-- End Document
+  <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+
 </html>

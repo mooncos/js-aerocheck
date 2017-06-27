@@ -12,12 +12,10 @@
 
 #error {
     color: red;
-}
-
-.welcome-title {
-    margin-bottom: 0px;
+    font-weight: bold;
 }
 
 .logo {
-    font-weight: 600;
+    font-weight: 700;
+    font-style: italic;
 }
