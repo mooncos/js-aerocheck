@@ -12,6 +12,7 @@ function obtenerLocalizacion() {
         error.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
+
 function procesarPosicion(position) {
 
     welcome.className = "hidden-element";
@@ -26,6 +27,19 @@ function procesarPosicion(position) {
     aqi.innerHTML = jsonObjeto.data.aqi;
     city.innerHTML =jsonObjeto.data.city.name;
     
+}
+
+function ipLocalizacion() {
+
+    welcome.className = "hidden-element";
+    content.className = "";
+
+    var url = "https://api.waqi.info/feed/here/?token=" + "4e74e4e29ca5b7b534c509c493f5cf41c938aafb";
+    var jsonRaw = hacerGetHTTP(url);
+    var jsonObjeto = JSON.parse(jsonRaw);
+
+    aqi.innerHTML = jsonObjeto.data.aqi;
+    city.innerHTML =jsonObjeto.data.city.name;
 }
 
 function hacerGetHTTP(laURL)
