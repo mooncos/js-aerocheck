@@ -18,7 +18,7 @@ function showError(error) {
     errorText.className = "";
     switch (error.code) {
         case error.PERMISSION_DENIED:
-            errorText.innerHTML = "User denied the request for Geolocation.<br />Please turn on 'Location'"
+            errorText.innerHTML = "User denied the request for Geolocation.<br />Please turn on 'Location' or access with HTTPS."
             break;
         case error.POSITION_UNAVAILABLE:
             errorText.innerHTML = "Location information is unavailable."
