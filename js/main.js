@@ -63,31 +63,17 @@ function mostrarValores(aqiParam, cityParam) {
     city.innerHTML = cityParam;
 
     if (aqiVal >= 0 && aqiVal <= 50) {
-        $("#aqi").html(aqiVal + " · Good");
+        $("#aqi").html(aqiVal + " · Good").css("background-color", "green");;
     } else if (aqiVal > 50 && aqiVal <= 100) {
-        $("#aqi").html(aqiVal + " · Moderate");
+        $("#aqi").html(aqiVal + " · Moderate").css("background-color", "#cccc00");
     } else if (aqiVal > 100 && aqiVal <= 150) {
-        $("#aqi").html(aqiVal + " · Harmful");
+        $("#aqi").html(aqiVal + " · Harmful").css("background-color", "orange");
     } else if (aqiVal > 150 && aqiVal <= 200) {
-        $("#aqi").html(aqiVal + " · Unhealthy");
+        $("#aqi").html(aqiVal + " · Unhealthy").css("background-color", "red");
     } else if (aqiVal > 200 && aqiVal <= 300) {
-        $("#aqi").html(aqiVal + " · Very unhealthy");
+        $("#aqi").html(aqiVal + " · Very unhealthy").css("background-color", "purple");
     } else if (aqiVal > 300) {
-        $("#aqi").html(aqiVal + " · Hazardous");
-    }
-
-    if (aqiVal >= 0 && aqiVal <= 50) {
-        $("#aqi").css("background-color", "green");
-    } else if (aqiVal > 50 && aqiVal <= 100) {
-        $("#aqi").css("background-color", "#cccc00");
-    } else if (aqiVal > 100 && aqiVal <= 150) {
-        $("#aqi").css("background-color", "orange");
-    } else if (aqiVal > 150 && aqiVal <= 200) {
-        $("#aqi").css("background-color", "red");
-    } else if (aqiVal > 200 && aqiVal <= 300) {
-        $("#aqi").css("background-color", "purlple");
-    } else if (aqiVal > 300) {
-        $("#aqi").css("background-color", "black");
+        $("#aqi").html(aqiVal + " · Hazardous").css("background-color", "black")
     }
 
 }
